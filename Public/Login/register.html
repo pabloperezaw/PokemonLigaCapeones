@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Css/register.css">
+    <link rel="icon" href="../../Media/Imagenes/Magcargo_variocolor.png" type="image/x-icon">
+
+    <title>Registro</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../Home/home.html">Home</a></li>
+            <li><a href="../Guia/ListaEntrenadores/index.html">Entrenadores Rivales</a></li>
+            <li><a href="../Guia/ListaPokemon/index.html">Lista Pokemon</a></li>
+            <li><a href="../Guia/ListaMovimientos/index.html">Lista Movimientos</a></li>
+            <li class="menuDesplegar">
+                <a href="#" class="submenuTitulo">Ranking ▾</a>
+                <ul class="submen">
+                    <li><a href="../Guia/Ranking/nivel1.html">Nivel 1</a></li>
+                    <li><a href="../Guia/Ranking/nivel2.html">Nivel 2</a></li>
+                    <li><a href="../Guia/Ranking/nivel3.html">Nivel 3</a></li>
+                    <li><a href="../Guia/Ranking/nivel4.html">Nivel 4</a></li>
+                    <li><a href="../Guia/Ranking/nivel5.html">Nivel 5</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="sesiones">
+            <button class="boton register"><a href="./login.html">Inicio de Sesión</a></button>
+        </div>
+    </nav>
+
+    <article>
+        <div class="contenido-registro">
+        <h2>Registro</h2>
+        <form action="/login" method="POST">
+            <input type="text" name="name" placeholder="Nombre" required><br>
+            <input type="password" name="password" placeholder="Contraseña" required><br>
+            <input type="email" name="email" placeholder="Correo Gmail" pattern=".+@gmail\.com" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+        </div>
+    </article>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+            if (params.get('msg')) {
+            alert(params.get('msg'));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('.menuDesplegar');
+
+            toggle.querySelector('.submenuTitulo').addEventListener('click', (e) => {
+                e.preventDefault(); // Previene el salto por href="#"
+                toggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
