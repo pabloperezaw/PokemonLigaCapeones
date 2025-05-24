@@ -1,4 +1,4 @@
-fetch("http://localhost:3002/entrenadores")
+fetch("http://localhost:3000/entrenadores")
   .then(res => res.json())
   .then(data => {
     const tbody = document.querySelector("#pokemon-table tbody");
