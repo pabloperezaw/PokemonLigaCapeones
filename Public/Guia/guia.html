@@ -3,18 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página Principal</title>
-  <link rel="stylesheet" href="guia.css" />
+  <title>Menú Principal</title>
+  <link rel="stylesheet" href="../../Css/guia.css">
+  <link rel="icon" href="../../Media/Imagenes/Magcargo_variocolor.png" type="image/x-icon">
+
 </head>
 <body>
-  <div class="container">
-    <h1>Bienvenido a la guía del juego</h1>
-    <p>Elige una página de la guía a la que quieras acceder:</p>
-    <nav>
-      <a href="ListaPokemon/index.html">Lista de todos los pokemon</a>
-      <a href="ListaMovimientos/index.html">Lista de todos los movimientos</a>
-      <a href="ListaEntrenadores/index.html">Lista de todos los entrenadores</a>
-    </nav>
-  </div>
+  <nav>
+        <ul>
+            <li><a href="../Home/home.html">Home</a></li>
+            <li><a href="../Guia/ListaEntrenadores/index.html">Entrenadores Rivales</a></li>
+            <li><a href="../Guia/ListaPokemon/index.html">Lista Pokemon</a></li>
+            <li><a href="../Guia/ListaMovimientos/index.html">Lista Movimientos</a></li>
+            <li class="menuDesplegar">
+                <a href="#" class="submenuTitulo">Ranking ▾</a>
+                <ul class="submen">
+                    <li><a href="Ranking/nivel1.html">Nivel 1</a></li>
+                    <li><a href="Ranking/nivel2.html">Nivel 2</a></li>
+                    <li><a href="Ranking/nivel3.html">Nivel 3</a></li>
+                    <li><a href="Ranking/nivel4.html">Nivel 4</a></li>
+                    <li><a href="Ranking/nivel5.html">Nivel 5</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="sesiones">
+            <button class="boton login"><a href="../Login/login.html">Iniciar sesión</a></button>
+            <button class="boton register"><a href="../Login/register.html">Registrarse</a></button>
+        </div>
+  </nav>
+
+  <article>
+    <div class="contenedor">
+      <h1>Bienvenido a la guía del juego</h1>
+      <p>Elige una página de la guía a la que quieras acceder:</p>
+        <a href="ListaPokemon/index.html">Lista de todos los pokemon</a>
+        <a href="ListaMovimientos/index.html">Lista de todos los movimientos</a>
+        <a href="ListaEntrenadores/index.html">Lista de todos los entrenadores</a>
+    </div>
+  </article>
+  
+<script src="../../Javascript/guia.js"></script>
 </body>
 </html>
