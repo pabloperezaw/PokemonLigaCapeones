@@ -28,7 +28,7 @@
         </ul>
 
         <div class="sesiones">
-            <button class="boton logout">Cerrar Sesión</button>
+            <button onclick="cerrarSesion()" class="boton logout">Cerrar Sesión</button>
         </div>
     </nav>
 
@@ -58,6 +58,10 @@
 
             <div class="batalla2">
                 <a href="../Nivel1/nivel1.html">Repetir Combate</a>
+            </div>
+
+            <div id="temporizador" class="alert alert-primary text-center fw-bold fs-4">
+                Tiempo: <span id="temporizador">0</span> segundos
             </div>
 
             <div id="battle-log"></div>

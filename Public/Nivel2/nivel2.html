@@ -28,7 +28,7 @@
         </ul>
 
         <div class="sesiones">
-            <button class="boton register">Cerrar Sesión</button>
+            <button onclick="cerrarSesion()" class="boton register">Cerrar Sesión</button>
         </div>
     </nav>
     
@@ -44,10 +44,10 @@
             <p class="pokemon"> <span id="player-pokemon"></span> <span id="nombre-tu-pokemon"></span> (HP: <span id="player-hp"></span>)</p>
             
             <div id="player-moves">
-                <button onclick="playerMove()">Impactrueno</button>
-                <button onclick="playerMove()">Ataque Rápido</button>
-                <button onclick="playerMove()">Cola de Hierro</button>
-                <button  onclick="playerMove()">Rayo</button>
+                <button onclick="playerMove()"></button>
+                <button onclick="playerMove()"></button>
+                <button onclick="playerMove()"></button>
+                <button  onclick="playerMove()"></button>
             </div>
         </div>
         <div class="derecha">
@@ -59,6 +59,10 @@
                 <a href="../Nivel2/nivel2.html">Repetir Combate</a>
             </div>
 
+            <div id="temporizador" class="alert alert-primary text-center fw-bold fs-4">
+                Tiempo: <span id="temporizador">0</span> segundos
+            </div>
+            
             <div id="battle-log"></div>
         </div>
     </div>
