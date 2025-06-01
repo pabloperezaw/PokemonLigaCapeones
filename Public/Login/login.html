@@ -34,30 +34,16 @@
   <article>
     <div class="contenido-login">
       <h2>Inicio de Sesión</h2>
-      <form action="/login" method="POST">
-        <input type="text" name="name" placeholder="Nombre" required><br>
-        <input type="password" name="password" placeholder="Contraseña" required><br>
+      <form id="formulario-login">
+        <p>Nombre:</p>
+        <input type="text" name="name" placeholder="Nombre" id="username" required><br>
+        Contraseña:
+        <input type="password" name="password" placeholder="Contraseña" id="password" required><br>
         <button type="submit">Iniciar sesión</button>
       </form>
     </div>
   </article>
-  
-  
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('msg')) {
-      alert(params.get('msg'));
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('.menuDesplegar');
-
-    toggle.querySelector('.submenuTitulo').addEventListener('click', (e) => {
-            e.preventDefault(); // Previene el salto por href="#"
-            toggle.classList.toggle('active');
-        });
-    });
-  </script>
+  <script src="../../Javascript/iniciosesion.js"></script>
 </body>
 </html>
