@@ -167,3 +167,16 @@ ul > li > a:hover {
 .boton:hover {
     background-color: #fff176;
 }
+
+#temporizador{
+    margin-left: 10%;
+}
+
+.boton a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.boton a:visited {
+    color: inherit;
+}
