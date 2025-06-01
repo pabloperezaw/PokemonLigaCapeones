@@ -20,7 +20,8 @@ th {
 
 h1{
     text-align: center;
-    color: blue;
+    color: blue !important;
+    font-size: 1.5rem !important;
 }
 
 
@@ -113,4 +114,13 @@ ul > li > a:hover {
 
 .boton:hover {
     background-color: #fff176;
+}
+
+.boton a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.boton a:visited {
+    color: inherit;
 }
