@@ -4,7 +4,6 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:all": "concurrently \"node server.js\" \"node movesetserver.js\" \"node trainerserver.js\" \"node loginserver.js\"",
     "start": "node server.js"
   },
   "keywords": [],
@@ -12,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-mysql-session": "^3.0.3",
