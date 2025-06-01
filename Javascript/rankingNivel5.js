@@ -1,15 +1,12 @@
-fetch("http://localhost:3000/movimientos")
+fetch("http://localhost:3000/rankingnivel5")
   .then(res => res.json())
   .then(data => {
     const tbody = document.querySelector("#pokemon-table tbody");
     data.forEach(p => {
       const row = document.createElement("tr");
       row.innerHTML = `
-        <td>${p.id}</td>
-        <td>${p.nombre}</td>
-        <td>${p.tipo}</td>
-        <td>${p.potencia}</td>
-        <td>${p.precision_ataque}</td>
+        <td>${p.nombre_usuario}</td>
+        <td>${p.tiempo}</td>
       `;
       tbody.appendChild(row);
     });

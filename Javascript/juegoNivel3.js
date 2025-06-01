@@ -1,3 +1,18 @@
+let nivel = 3;
+
+const usuario = localStorage.getItem('usuario');
+if (!usuario) {
+    alert("No puedes acceder a esta página porque no has iniciado sesión");
+    window.location.href = '../Home/home.html'; // redirige al home si no hay una sesión activa    
+}
+
+// funcion que permte cerrar la sesión
+function cerrarSesion() {
+    localStorage.clear(); // o localStorage.removeItem('usuario');
+    alert('Sesón cerrada corectamente');
+    window.location.href = '../Home/home.html'; // o la ruta correcta
+}
+
 const playerTeam = [
     {
         name: "Drapion",
@@ -379,12 +394,14 @@ function playerMove(moveName, damage, tipoMovimiento) {
         currentOpponentIndex++;
         if (currentOpponentIndex >= opponentTeam.length) {
             logMessage("¡Campeon de tipo Hielo se ha quedado sin Pokemon! ¡Has ganado el primer combate!");
+            detenerTemporizador();
             win = 1;
             if (win == 1) {
                 botonLevel.style.opacity = '1';
                 botonLevel.style.pointerEvents = 'all';
             }
             // botonLevel.classList.remove('batalla')
+            registrarPartida(nivel, segundos, usuario);
             return;
         } else {
             logMessage(`¡${opponent.name} ha sido debilitado! ¡Campeón de tipo Bicho saca a ${opponentTeam[currentOpponentIndex].name}!`);
@@ -424,6 +441,7 @@ function playerMove(moveName, damage, tipoMovimiento) {
         currentPlayerIndex++;
         if (currentPlayerIndex >= playerTeam.length) {
             logMessage("¡Todos tus Pokemon han sido debiltados! ¡No puedes seguir luchando! ¡Has perdido!");
+            detenerTemporizador();
             win = 0;
             if (win == 0) {
                 botonLevel2.style.opacity = '1';
@@ -445,5 +463,54 @@ document.addEventListener('DOMContentLoaded', () => {
         toggle.classList.toggle('active');
     });
 });
+
+// variables usadas para crear el temporizador
+let segundos = 0;
+let temporizador = document.getElementById('temporizador');
+let intervalo;
+
+// funcion para iniciar el temporizador que comenzara cuando se habra la pagina
+function iniciarTemporizador() {
+    intervalo = setInterval(() => {
+        segundos++;
+        temporizador.textContent = "Tiempo: " + segundos + " segundos";
+    }, 1000);
+}
+
+// funcion para detener el temporizador que se ejecuta cuando se pierde o se gana la partida
+function detenerTemporizador() {
+    clearInterval(intervalo);
+}
+
+// Empezamos el temporizador
+iniciarTemporizador();
+
+// guardar la partida
+async function registrarPartida(nivel, tiempo, usuario) {
+    try {
+      const respuesta = await fetch('http://localhost:3000/guardar-partida', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          nivel: nivel,
+          tiempo_segundos: tiempo,
+          usuario: usuario
+        })
+      });
+
+      const resultado = await respuesta.json();
+      if (resultado.exito) {
+        alert('Partida registrada correctamente.');
+      } else {
+        alert('Hubo un error al registrar la partida.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error al conectar con el servidor.');
+    }
+}
+
 // Iniiciar el combate
 updatePokemonDisplay();
