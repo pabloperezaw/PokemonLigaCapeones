@@ -55,7 +55,7 @@ app.get("/movimientos", (req, res) => {
 
 app.get("/entrenadores", (req, res) => {
   connection.query(
-    "select e.id, e.nombre AS nombre_entrenador, e.tipo_especializa, p1.nombre AS nombre_poke1, p2.nombre AS nombre_poke2, p3.nombre AS nombre_poke3, p4.nombre AS nombre_poke4, p5.nombre AS nombre_poke5, p6.nombre AS nombre_poke6 FROM entrenadores e INNER JOIN pokemon p1 ON e.poke1 = p1.id INNER JOIN pokemon p2 ON e.poke2 = p2.id INNER JOIN pokemon p3 ON e.poke3 = p3.id INNER JOIN pokemon p4 ON e.poke4 = p4.id INNER JOIN pokemon p5 ON e.poke5 = p5.id INNER JOIN pokemon p6 ON e.poke6 = p6.id;",
+    "SELECT e.nombre AS nombre_entrenador, e.tipo_especializa, GROUP_CONCAT(p.nombre ORDER BY p.id SEPARATOR ', ') AS pokemon_equipo FROM entrenadores e JOIN pokemon p ON p.id_entrenador = e.id GROUP BY e.id, e.nombre, e.tipo_especializa;",
     (error, results) => {
       if (error) {
         res.status(500).json({ error: "Error en la consulta" });
