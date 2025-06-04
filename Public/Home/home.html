@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Css/home.css">
+    <link rel="icon" href="../../Media/Imagenes/Magcargo_variocolor.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>Liga Pokegenios</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex justify-content-between align-items-start">
+           
+            <!-- Menú hamburguesa -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContenido" aria-controls="navContenido" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+ 
+            <!-- Menú principal -->
+            <div class="collapse navbar-collapse" id="navContenido">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a href="./home.html">Home</a></li>
+                    <li><a href="../Guia/ListaEntrenadores/index.html">Entrenadores Rivales</a></li>
+                    <li><a href="../Guia/ListaPokemon/index.html">Lista Pokemon</a></li>
+                    <li><a href="../Guia/ListaMovimientos/index.html">Lista Movimientos</a></li>
+                    <li class="menuDesplegar">
+                    <a href="#" class="submenuTitulo">Ranking ▾</a>
+                        <ul class="submen">
+                            <li><a href="../Guia/Ranking/nivel1.html">Nivel 1</a></li>
+                            <li><a href="../Guia/Ranking/nivel2.html">Nivel 2</a></li>
+                            <li><a href="../Guia/Ranking/nivel3.html">Nivel 3</a></li>
+                            <li><a href="../Guia/Ranking/nivel4.html">Nivel 4</a></li>
+                            <li><a href="../Guia/Ranking/nivel5.html">Nivel 5</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+ 
+            <!-- Botones de sesión SIEMPRE visibles -->
+            <div class="sesiones d-flex">
+                <button class="boton login me-2">
+                    <a href="../Login/login.html">Iniciar sesión</a>
+                </button>
+                <button class="boton register">
+                    <a href="../Login/register.html">Registrarse</a>
+                </button>
+            </div>
+        </div>
+    </nav>
+ 
+ 
+ 
+    <h1>Bienvenido a la Liga de los Pokegenios</h1>
+ 
+    <article>
+        <div class="contenedor">
+            <div class="seccion">
+                <!-- carrusel -->
+                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../../Media/Imagenes/volcarona.gif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../Media/Imagenes/Ogerpon Cimiento.gif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../Media/Imagenes/Calyrex jinete glacial.gif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../Media/Imagenes/Solgaleo.gif" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../Media/Imagenes/Garchomp.gif" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    </div>
+            </div>
+ 
+            <div class="seccion">
+                <h2>Comenzar el reto</h2>
+                <p> En este enlace puedes empezar a jugar después de loguearte. </p>
+                <a href="http://localhost:3004">Jugar Ahora</a>
+            </div>
+        </div>
+    </article>
+   
+    <script src="../../Javascript/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row text-center text-md-start align-items-center">
+                <div class="col-12 col-md-4 mb-2 mb-md-0">
+                <span class="d-block d-md-inline">Pablo Pérez García</span>
+                </div>
+                <div class="col-12 col-md-4 mb-2 mb-md-0 text-md-center">
+                <span class="d-block d-md-inline">&copy; Derechos reservados 2025</span>
+                </div>
+                <div class="col-12 col-md-4 text-md-end">
+                <img src="../../Media/Imagenes/ies_comercio_logo.jpg" alt="Logo" class="img-fluid" style="max-height: 40px;">
+                </div>
+            </div>
+        </div>
+  </footer>
+</body>
+</html>
