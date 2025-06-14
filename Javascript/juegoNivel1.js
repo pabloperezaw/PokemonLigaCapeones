@@ -362,7 +362,7 @@ function playerMove(moveName, damage, tipoMovimiento) {
     const opponent = opponentTeam[currentOpponentIndex];
 
     if (player.hp <= 0 || opponent.hp <= 0) {
-        logMessage("The battle is already over!");
+        logMessage("El combate ha terminado!");
         return;
     }
 
@@ -373,7 +373,7 @@ function playerMove(moveName, damage, tipoMovimiento) {
     let efect1Propio = Efectividad1(opponent.tipoPrincipal, tipoMovimiento);
     let efect2Propio = Efectividad2(opponent.tipoSecundario, tipoMovimiento);
     let efectividadTotPropio = efect1Propio * efect2Propio;
-    console.log(efect1Propio + " " + efect2Propio + " " + efectividadTotPropio);
+    //console.log(efect1Propio + " " + efect2Propio + " " + efectividadTotPropio);
 
     // Ataque del jugador
     let playerDamage = 0.01 * danoStabPropio * efectividadTotPropio * 100 * ((0.2 * 100 + 1) * damage * player.at /*/ (25 * opponent.def) + 2*/);
@@ -384,7 +384,17 @@ function playerMove(moveName, damage, tipoMovimiento) {
     console.log("Ataque del jugador = " + playerDamage);
     console.log("Defensa del enemigo = " + oppoDefensa);
 
-    logMessage(`${player.name} ha usado ${moveName}, ha echo ${sinDecimales} de daño. `);
+    // mensajes que aparecen en el recuadro gris de la derecha informando de lo que se ha echo en cada jugada
+    if (efectividadTotPropio >= 2) {
+        logMessage(`Ha sido un ataque super efectivo. ${player.name} ha usado ${moveName}, ha hecho ${sinDecimales} de daño. `);
+    }else if(efectividadTotPropio < 1 && efectividadTotPropio > 0){
+        logMessage(`Ha sido un ataque poco eficaz. ${player.name} ha usado ${moveName}, ha hecho ${sinDecimales} de daño. `);
+    }else if(efectividadTotPropio == 0){
+        logMessage(`El ataque no ha tenido efecto. ${player.name} ha usado ${moveName}, ha hecho ${sinDecimales} de daño. `);
+    }else{
+        logMessage(`${player.name} ha usado ${moveName}, ha hecho ${sinDecimales} de daño. `);
+    }
+    
     opponent.hp -= sinDecimales;
 
 
@@ -394,7 +404,7 @@ function playerMove(moveName, damage, tipoMovimiento) {
     if (opponent.hp <= 0) {
         currentOpponentIndex++;
         if (currentOpponentIndex >= opponentTeam.length) {
-            logMessage("¡Campeon de tipo Hielo se ha quedado sin Pokemon! ¡Has ganado el primer combate!");
+            logMessage("¡Campeon de tipo Bicho se ha quedado sin Pokemon! ¡Has ganado el primer combate!");
             detenerTemporizador();
             console.log(segundos);
             win = 1;
@@ -433,7 +443,17 @@ function playerMove(moveName, damage, tipoMovimiento) {
     console.log("Defensa del jugador = " + jugadorDefensa);
     Math.round(sinDecimales2);
     
-    logMessage(`${opponent.name} ha usado ${opponentMove.name}, ha echo ${sinDecimales2} de daño.`);
+    // mensajes que aparecen en el recuadro gris de la derecha informando de lo que se ha echo en cada jugada
+    if (efectividadTotRival >= 2) {
+        logMessage(`Ha sido un ataque super efectivo. ${opponent.name} ha usado ${opponentMove.name}, ha hecho ${sinDecimales2} de daño. `);
+    }else if(efectividadTotRival < 1 && efectividadTotRival > 0){
+        logMessage(`Ha sido un ataque poco eficaz. ${opponent.name} ha usado ${opponentMove.name}, ha hecho ${sinDecimales2} de daño. `);
+    }else if(efectividadTotRival == 0){
+        logMessage(`El ataque no ha tenido efecto. ${opponent.name} ha usado ${opponentMove.name}, ha hecho ${sinDecimales2} de daño. `);
+    }else{
+        logMessage(`${opponent.name} ha usado ${opponentMove.name}, ha hecho ${sinDecimales2} de daño. `);
+    }
+
     player.hp -= sinDecimales2;
     
     if (player.hp < 0) player.hp = 0;
