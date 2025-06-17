@@ -27,7 +27,7 @@ document
 
       if (response.ok) {
         alert("Usuario registrado con éxito");
-        window.location.href = "../Nivel1/nivel1.html"; // Redirige al login si quieres
+        window.location.href = "../Login/login.html"; // Redirige al login si quieres
       } else {
         alert("Error: " + result.error);
       }
